@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  database:
+    image: mongo:7.0
+    container_name: mongodb_container
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - mongo-data:/data/db
+
+  web-app:
+    build: ./
+    container_name: nodejs_container
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URI: ${MONGODB_URI}
+    depends_on:
+      - database
+
+volumes:
+  mongo-data:
