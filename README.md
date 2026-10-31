@@ -65,3 +65,6 @@ curl -i -X DELETE http://localhost:3000/api/incidents/ID
 ```
 
 `title` y `description` son obligatorios; los valores por defecto son `other`, `medium` y `open`. La lista devuelve `items` y `pagination` (página inicial 1, límite predeterminado 10 y máximo 100). Un identificador malformado produce 400, uno válido pero inexistente 404, y los datos o filtros inválidos 422. La especificación describe las restricciones y todas las respuestas.
+
+
+# Test de GitFlow
