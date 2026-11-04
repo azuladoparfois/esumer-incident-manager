@@ -1,0 +1,6 @@
+.env
+.git
+.terraform
+terraform
+node_modules
+coverage
